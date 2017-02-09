@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0025EAF61E42DEBD009CD5F2 /* orgFinderfromuser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025EAF51E42DEBD009CD5F2 /* orgFinderfromuser.swift */; };
+		002754E81E3F349F00B4928D /* TagTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002754E71E3F349F00B4928D /* TagTableVC.swift */; };
+		0029995C1E3F017B008E387A /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029995B1E3F017B008E387A /* Organization.swift */; };
+		0029995E1E3F01A5008E387A /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029995D1E3F01A5008E387A /* Tag.swift */; };
+		002999601E3F01FB008E387A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029995F1E3F01FB008E387A /* User.swift */; };
+		002A675F1E4151B600AA6265 /* Organization Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A675E1E4151B600AA6265 /* Organization Finder.swift */; };
+		002A67611E41721100AA6265 /* orgDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A67601E41721100AA6265 /* orgDetail.swift */; };
 		00824BD21E221E320031C1DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00824BD11E221E320031C1DB /* AppDelegate.swift */; };
-		00824BD41E221E320031C1DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00824BD31E221E320031C1DB /* ViewController.swift */; };
+		00824BD41E221E320031C1DB /* newUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00824BD31E221E320031C1DB /* newUser.swift */; };
 		00824BD71E221E320031C1DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00824BD51E221E320031C1DB /* Main.storyboard */; };
 		00824BD91E221E320031C1DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00824BD81E221E320031C1DB /* Assets.xcassets */; };
 		00824BDC1E221E320031C1DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00824BDA1E221E320031C1DB /* LaunchScreen.storyboard */; };
 		00824BE71E221E320031C1DB /* Social_JusticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00824BE61E221E320031C1DB /* Social_JusticeTests.swift */; };
 		00824BF21E221E320031C1DB /* Social_JusticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00824BF11E221E320031C1DB /* Social_JusticeUITests.swift */; };
+		00A2E0361E419FA6008ED3F3 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */; };
+		00A2E0381E41AAEE008ED3F3 /* yourUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2E0371E41AAEE008ED3F3 /* yourUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +43,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0025EAF51E42DEBD009CD5F2 /* orgFinderfromuser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orgFinderfromuser.swift; sourceTree = "<group>"; };
+		002754E71E3F349F00B4928D /* TagTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTableVC.swift; sourceTree = "<group>"; };
+		0029995B1E3F017B008E387A /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		0029995D1E3F01A5008E387A /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		0029995F1E3F01FB008E387A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		002A675E1E4151B600AA6265 /* Organization Finder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization Finder.swift"; sourceTree = "<group>"; };
+		002A67601E41721100AA6265 /* orgDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orgDetail.swift; sourceTree = "<group>"; };
 		00824BCE1E221E320031C1DB /* Social Justice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Justice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00824BD11E221E320031C1DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00824BD31E221E320031C1DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		00824BD31E221E320031C1DB /* newUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newUser.swift; sourceTree = "<group>"; };
 		00824BD61E221E320031C1DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00824BD81E221E320031C1DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00824BDB1E221E320031C1DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +63,8 @@
 		00824BED1E221E320031C1DB /* Social JusticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Social JusticeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00824BF11E221E320031C1DB /* Social_JusticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social_JusticeUITests.swift; sourceTree = "<group>"; };
 		00824BF31E221E320031C1DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
+		00A2E0371E41AAEE008ED3F3 /* yourUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yourUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +92,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002999591E3F0146008E387A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0029995B1E3F017B008E387A /* Organization.swift */,
+				0029995D1E3F01A5008E387A /* Tag.swift */,
+				0029995F1E3F01FB008E387A /* User.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		0029995A1E3F014E008E387A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				00824BD31E221E320031C1DB /* newUser.swift */,
+				002754E71E3F349F00B4928D /* TagTableVC.swift */,
+				002A675E1E4151B600AA6265 /* Organization Finder.swift */,
+				002A67601E41721100AA6265 /* orgDetail.swift */,
+				00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */,
+				00A2E0371E41AAEE008ED3F3 /* yourUser.swift */,
+				0025EAF51E42DEBD009CD5F2 /* orgFinderfromuser.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		00824BC51E221E320031C1DB = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +139,9 @@
 		00824BD01E221E320031C1DB /* Social Justice */ = {
 			isa = PBXGroup;
 			children = (
+				0029995A1E3F014E008E387A /* View Controllers */,
+				002999591E3F0146008E387A /* Classes */,
 				00824BD11E221E320031C1DB /* AppDelegate.swift */,
-				00824BD31E221E320031C1DB /* ViewController.swift */,
 				00824BD51E221E320031C1DB /* Main.storyboard */,
 				00824BD81E221E320031C1DB /* Assets.xcassets */,
 				00824BDA1E221E320031C1DB /* LaunchScreen.storyboard */,
@@ -193,6 +236,7 @@
 				TargetAttributes = {
 					00824BCD1E221E320031C1DB = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = K9293LAVXN;
 						ProvisioningStyle = Automatic;
 					};
 					00824BE11E221E320031C1DB = {
@@ -259,8 +303,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00824BD41E221E320031C1DB /* ViewController.swift in Sources */,
+				002754E81E3F349F00B4928D /* TagTableVC.swift in Sources */,
+				00A2E0381E41AAEE008ED3F3 /* yourUser.swift in Sources */,
+				0029995E1E3F01A5008E387A /* Tag.swift in Sources */,
+				00824BD41E221E320031C1DB /* newUser.swift in Sources */,
+				0029995C1E3F017B008E387A /* Organization.swift in Sources */,
+				002999601E3F01FB008E387A /* User.swift in Sources */,
+				002A67611E41721100AA6265 /* orgDetail.swift in Sources */,
 				00824BD21E221E320031C1DB /* AppDelegate.swift in Sources */,
+				0025EAF61E42DEBD009CD5F2 /* orgFinderfromuser.swift in Sources */,
+				002A675F1E4151B600AA6265 /* Organization Finder.swift in Sources */,
+				00A2E0361E419FA6008ED3F3 /* MainMenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,10 +465,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = K9293LAVXN;
 				INFOPLIST_FILE = "Social Justice/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "PigboyDevelopment.Social-Justice";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pigboydevelopment.voices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -424,10 +483,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = K9293LAVXN;
 				INFOPLIST_FILE = "Social Justice/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "PigboyDevelopment.Social-Justice";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pigboydevelopment.voices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -438,6 +503,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Social JusticeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PigboyDevelopment.Social-JusticeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -452,6 +518,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Social JusticeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PigboyDevelopment.Social-JusticeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,6 +572,7 @@
 				00824BF81E221E320031C1DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00824BF91E221E320031C1DB /* Build configuration list for PBXNativeTarget "Social JusticeTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +581,7 @@
 				00824BFB1E221E320031C1DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00824BFC1E221E320031C1DB /* Build configuration list for PBXNativeTarget "Social JusticeUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +590,7 @@
 				00824BFE1E221E320031C1DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
