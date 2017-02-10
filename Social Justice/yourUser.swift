@@ -19,7 +19,7 @@ class UsOrgCell: UITableViewCell {
     
 }
 
-class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var firstName: UILabel!
@@ -75,6 +75,28 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             cell.tagLabel.text = globUs.tags[indexPath.row].title
             return cell
         }
+    }
+    
+    func showcamera() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = true
+            
+            self.present(imagePicker, animated: true, completion: nil)
+            
+        } else {
+            NSLog("No Cam Fam")
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        self.dismiss(animated: true, completion: nil)
+        
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        self.profPic.image = chosenImage
     }
     
 }

@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
-class User: NSObject{
+import os.log
+
+class User: NSObject, NSCoding{
     var firstName: String?
     var lastName: String?
     var bio: String?
@@ -54,4 +56,30 @@ class User: NSObject{
         return false
     }
     
+    struct coderKey {
+        static let fName = "fName"
+        static let lName = "lName"
+        static let bio = "bio"
+        static let tags = "tags"
+        static let orgs = "orgs"
+        static let img = "img"
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.firstName, forKey: coderKey.fName)
+        aCoder.encode(self.lastName, forKey: coderKey.lName)
+        aCoder.encode(self.bio, forKey: coderKey.bio)
+        aCoder.encode(self.tags, forKey: coderKey.tags)
+        aCoder.encode(self.organizations, forKey: coderKey.orgs)
+        aCoder.encode(self.img, forKey: coderKey.img)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        if let fName = aDecoder.decodeBool(forKey: coderKey.fName) as? String else {
+            self.firstName = fName
+        }else{
+            return nil
+        }
+        return nil
+    }
 }
