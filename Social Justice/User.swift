@@ -75,11 +75,31 @@ class User: NSObject, NSCoding{
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        if let fName = aDecoder.decodeBool(forKey: coderKey.fName) as? String else {
-            self.firstName = fName
-        }else{
+        guard let firstNam = aDecoder.decodeObject(forKey: coderKey.fName) as? String else {
+            print("trouble decoding first name")
             return nil
         }
+        guard let lastNam = aDecoder.decodeObject(forKey: coderKey.lName) as? String else {
+            print("trouble decoding last name")
+            return nil
+        }
+        guard let bi = aDecoder.decodeObject(forKey: coderKey.bio) as? String else {
+            print("trouble decoding bio")
+            return nil
+        }
+        guard let tag = aDecoder.decodeObject(forKey: coderKey.tags) as? [Tag] else {
+            print("trouble decoding tags")
+            return nil
+        }
+        guard let organization = aDecoder.decodeObject(forKey: coderKey.orgs) as? [Organization] else {
+            print("trouble decoding orgs")
+            return nil
+        }
+        guard let im = aDecoder.decodeObject(forKey: coderKey.orgs) as? UIImage else {
+            print("trouble decoding img")
+            return nil
+        }
+        self.init()
         return nil
     }
 }
