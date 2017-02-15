@@ -14,32 +14,32 @@ class User: NSObject, NSCoding{
     var firstName: String?
     var lastName: String?
     var bio: String?
-    var tags: [Tag]?
-    var organizations: [Organization]?
+    var tags = [Int]()
+    var organizations = [Int]()
     var img: UIImage?
     
-    init(n: String, l: String, b: String, t: [Tag], o: [Organization], i: UIImage) {
+    init(n: String, l: String, b: String, t: [Int], o: [Int], i: UIImage) {
         self.firstName = n
         self.lastName = l
         self.bio = b
-        self.tags = [Tag]()
-        self.organizations = [Organization]()
         self.img = UIImage()
+        if(t.count != 0){
+            self.tags = t
+        } else if (o.count != 0) {
+            self.organizations = o
+        }
     }
 
     override init(){
         self.firstName = nil
         self.lastName = nil
         self.bio = nil
-        self.tags = [Tag]()
-        self.organizations = [Organization]()
         self.img = UIImage()
     }
     
-    func alreadyHasTag(t: Tag) -> Bool{
-        let text = t.title
-        for name in self.tags! {
-            if(text == name.title) {
+    func alreadyHasTag(t: Int) -> Bool{
+        for i in self.tags {
+            if(globTA[t].title == globTA[i].title) {
                 return true
             }
         }
@@ -48,8 +48,8 @@ class User: NSObject, NSCoding{
     
     func alreadyHasOrg(o: Organization) -> Bool{
         let text = o.title
-        for name in self.organizations! {
-            if (text == name.title){
+        for i in self.organizations {
+            if (text == globOA[i].title){
                 return true
             }
         }
@@ -91,11 +91,11 @@ class User: NSObject, NSCoding{
             print("trouble decoding bio")
             return nil
         }
-        guard let tag = aDecoder.decodeObject(forKey: coderKey.tags) as? [Tag] else {
+        guard let tag = aDecoder.decodeObject(forKey: coderKey.tags) as? [Int] else {
             print("trouble decoding tags")
             return nil
         }
-        guard let organization = aDecoder.decodeObject(forKey: coderKey.orgs) as? [Organization] else {
+        guard let organization = aDecoder.decodeObject(forKey: coderKey.orgs) as? [Int] else {
             print("trouble decoding orgs")
             return nil
         }
@@ -104,5 +104,14 @@ class User: NSObject, NSCoding{
             return nil
         }
         self.init(n: firstNam, l: lastNam, b: bi, t: tag, o: organization, i: im)
+    }
+}
+
+extension NSCoder {
+    func decodeString(forKey key: String) -> String{
+        return decodeObject(forKey: key) as? String ?? ""
+    }
+    func decodeData(forKey key: String) -> Data {
+        return decodeObject(forKey: key) as? Data ?? Data()
     }
 }

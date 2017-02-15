@@ -18,7 +18,6 @@ class TagTableVC: UITableViewController{
     
     //Table Content
     
-    var Tags: [Tag] = globTA
     var filteredTags = [Tag]()
     
     //Searchbar Initialization
@@ -27,6 +26,7 @@ class TagTableVC: UITableViewController{
     //Required Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -44,13 +44,13 @@ class TagTableVC: UITableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(searchController.isActive && searchController.searchBar.text != ""){
-            if(!globUs.alreadyHasTag(t: self.filteredTags[indexPath.row])){
-                globUs.tags?.append(self.filteredTags[indexPath.row])
+            if(!globUs.alreadyHasTag(t: self.filteredTags[indexPath.row].index)){
+                globUs.tags.append(self.filteredTags[indexPath.row].index)
                 dismiss(animated: true, completion: nil)
             }
         } else {
-            if(!globUs.alreadyHasTag(t: self.Tags[indexPath.row])){
-                globUs.tags?.append(self.Tags[indexPath.row])
+            if(!globUs.alreadyHasTag(t: indexPath.row)){
+                globUs.tags.append(indexPath.row)
                 dismiss(animated: true, completion: nil)
             }
         }
@@ -62,7 +62,7 @@ class TagTableVC: UITableViewController{
         if(searchController.isActive && searchController.searchBar.text != "") {
             return filteredTags.count
         }
-        return Tags.count
+        return globTA.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,9 +70,9 @@ class TagTableVC: UITableViewController{
         
         var text = ""
         if (searchController.isActive && searchController.searchBar.text != ""){
-            text = filteredTags[indexPath.row].title
+            text = globTA[filteredTags[indexPath.row].index].title
         } else {
-            text = Tags[indexPath.row].title
+            text = globTA[indexPath.row].title
         }
         
         cell.cellLabel.text = text
@@ -81,7 +81,7 @@ class TagTableVC: UITableViewController{
     
     //Filters Tags array into Filtered array based on search query
     func filterContentForSearchText(searchText: String, scope: String = "All"){
-        filteredTags = Tags.filter{ $0.title.lowercased().contains(searchText.lowercased())}
+        filteredTags = globTA.filter{ $0.title.lowercased().contains(searchText.lowercased())}
         self.tableView.reloadData()
     }
 }

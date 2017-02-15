@@ -10,12 +10,12 @@ import Foundation
 class Organization: NSObject, NSCoding{
     var title: String
     var acronym: String
-    var tags: [Tag]
+    var tags: [Int]
     var shortDesc: String
     var iUrl: String
     var url: URL
     
-    init(t: String, a: String, tA: [Tag], sD: String, u: String, o: String) {
+    init(t: String, a: String, tA: [Int], sD: String, u: String, o: String) {
         self.title = t
         self.tags = tA
         self.shortDesc = sD
@@ -26,9 +26,9 @@ class Organization: NSObject, NSCoding{
     
     func doesAlign() -> Bool{
         
-        for t in self.tags {
-            for tU in globUs.tags! {
-                if (t.equals(t: tU)){
+        for i in self.tags {
+            for tU in globUs.tags {
+                if (globTA[i].equals(t: globTA[tU])){
                     return true
                 }
             }
@@ -64,7 +64,7 @@ class Organization: NSObject, NSCoding{
             print("trouble decoding acronym")
             return nil
         }
-        guard let tag = aDecoder.decodeObject(forKey: coderKey.tags) as? [Tag] else {
+        guard let tag = aDecoder.decodeObject(forKey: coderKey.tags) as? [Int] else {
             print("trouble decoding tags")
             return nil
         }

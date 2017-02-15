@@ -9,9 +9,13 @@
 import Foundation
 class Tag: NSObject, NSCoding{
     var title: String
+    static var totalTags = -1
+    var index: Int
     
     init(s: String) {
         self.title = s
+        Tag.totalTags += 1
+        self.index = Tag.totalTags
     }
     
     func equals(t: Tag) -> Bool{
@@ -23,7 +27,7 @@ class Tag: NSObject, NSCoding{
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.title, forKey: coderKey.title)
+        aCoder.encode(title, forKey: coderKey.title)
     }
     
     private struct coderKey {
@@ -31,10 +35,7 @@ class Tag: NSObject, NSCoding{
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let titl = aDecoder.decodeObject(forKey: coderKey.title) as? String else {
-            print("trouble decoding first name")
-            return nil
-        }
+        let titl = aDecoder.decodeString(forKey: coderKey.title)
         self.init(s: titl)
     }
     
