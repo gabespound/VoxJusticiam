@@ -46,6 +46,14 @@ class newUser: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func saveuser() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(globUs, toFile: User.archiveURL.path)
+        if isSuccessfulSave {
+            print("Meals, saved")
+        } else {
+            print("fail save")
+        }
+    }
+    
 }
 

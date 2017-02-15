@@ -59,20 +59,20 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == self.orgTable) {
-            return globUs.organizations.count
+            return globUs.organizations!.count
         } else {
-            return globUs.tags.count
+            return globUs.tags!.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == self.orgTable) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "usorgcell", for: indexPath) as! UsOrgCell
-            cell.orgLabel.text = globUs.organizations[indexPath.row].acronym
+            cell.orgLabel.text = globUs.organizations?[indexPath.row].acronym
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ustagcell", for: indexPath) as! UsTagCell
-            cell.tagLabel.text = globUs.tags[indexPath.row].title
+            cell.tagLabel.text = globUs.tags?[indexPath.row].title
             return cell
         }
     }

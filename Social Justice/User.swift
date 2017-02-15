@@ -14,11 +14,11 @@ class User: NSObject, NSCoding{
     var firstName: String?
     var lastName: String?
     var bio: String?
-    var tags: [Tag]
-    var organizations: [Organization]
-    var img: UIImage
+    var tags: [Tag]?
+    var organizations: [Organization]?
+    var img: UIImage?
     
-    init(n: String, l: String, b: String) {
+    init(n: String, l: String, b: String, t: [Tag], o: [Organization], i: UIImage) {
         self.firstName = n
         self.lastName = l
         self.bio = b
@@ -38,7 +38,7 @@ class User: NSObject, NSCoding{
     
     func alreadyHasTag(t: Tag) -> Bool{
         let text = t.title
-        for name in self.tags {
+        for name in self.tags! {
             if(text == name.title) {
                 return true
             }
@@ -48,7 +48,7 @@ class User: NSObject, NSCoding{
     
     func alreadyHasOrg(o: Organization) -> Bool{
         let text = o.title
-        for name in self.organizations {
+        for name in self.organizations! {
             if (text == name.title){
                 return true
             }
@@ -73,6 +73,10 @@ class User: NSObject, NSCoding{
         aCoder.encode(self.organizations, forKey: coderKey.orgs)
         aCoder.encode(self.img, forKey: coderKey.img)
     }
+    
+    static var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+    static let archiveURL = DocumentsDirectory.appendingPathComponent("user")
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let firstNam = aDecoder.decodeObject(forKey: coderKey.fName) as? String else {
@@ -99,7 +103,6 @@ class User: NSObject, NSCoding{
             print("trouble decoding img")
             return nil
         }
-        self.init()
-        return nil
+        self.init(n: firstNam, l: lastNam, b: bi, t: tag, o: organization, i: im)
     }
 }

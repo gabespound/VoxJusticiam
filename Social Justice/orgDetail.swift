@@ -29,7 +29,7 @@ class orgDetailVC: UIViewController {
     
     @IBAction func addOrg(_ sender: Any) {
         if(!globUs.alreadyHasOrg(o: org!)){
-            globUs.organizations.append(self.org!)
+            globUs.organizations?.append(self.org!)
         }
         dismiss(animated: true, completion: nil)
     }

@@ -8,6 +8,15 @@
 
 import UIKit
 
+func saveuser() {
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(globUs, toFile: User.archiveURL.path)
+    if isSuccessfulSave {
+        print("user saved")
+    } else {
+        print("failed save")
+    }
+}
+
 struct TagsStruct {
     let animals = Tag(s: "Animal Rights")
     let prochoice = Tag(s: "Pro-Choice")
@@ -60,7 +69,7 @@ let globOS = OrgsStruct.init()
 
 let globOA = [globOS.aspca, globOS.plannedP, globOS.nRA, globOS.jewGuns, globOS.brady, globOS.ilga, globOS.aclu, globOS.SPLC, globOS.antiantijew, globOS.glaad, globOS.responsible, globOS.madd, globOS.sandy]
 
-let globUs = User.init()
+var globUs = User.init()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -70,6 +79,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if let us = NSKeyedUnarchiver.unarchiveObject(withFile: User.archiveURL.path) as? User {
+            globUs = us
+            let sb = UIStoryboard(name: "OneStoryboard", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "main")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 
@@ -93,6 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        saveuser()
     }
 
 

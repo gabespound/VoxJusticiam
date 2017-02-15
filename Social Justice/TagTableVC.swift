@@ -45,12 +45,12 @@ class TagTableVC: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(searchController.isActive && searchController.searchBar.text != ""){
             if(!globUs.alreadyHasTag(t: self.filteredTags[indexPath.row])){
-                globUs.tags.append(self.filteredTags[indexPath.row])
+                globUs.tags?.append(self.filteredTags[indexPath.row])
                 dismiss(animated: true, completion: nil)
             }
         } else {
             if(!globUs.alreadyHasTag(t: self.Tags[indexPath.row])){
-                globUs.tags.append(self.Tags[indexPath.row])
+                globUs.tags?.append(self.Tags[indexPath.row])
                 dismiss(animated: true, completion: nil)
             }
         }

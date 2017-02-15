@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Tag: NSObject{
+class Tag: NSObject, NSCoding{
     var title: String
     
     init(s: String) {
@@ -21,4 +21,21 @@ class Tag: NSObject{
             return false
         }
     }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.title, forKey: coderKey.title)
+    }
+    
+    private struct coderKey {
+        static let title = "title"
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let titl = aDecoder.decodeObject(forKey: coderKey.title) as? String else {
+            print("trouble decoding first name")
+            return nil
+        }
+        self.init(s: titl)
+    }
+    
 }
