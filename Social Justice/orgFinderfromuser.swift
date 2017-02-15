@@ -44,7 +44,7 @@ class OrgFinderFromUser: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orgcell", for: indexPath) as! OrgCell
         
         cell.orgAcro.text = filteredOrgs[indexPath.row].acronym
-        cell.topTag.text = filteredOrgs[indexPath.row].tags[0].title
+        cell.topTag.text = globTA[filteredOrgs[indexPath.row].tags[0]].title
         cell.orgImg.imageFromServerURL(urlString: filteredOrgs[indexPath.row].iUrl)
         
         return cell

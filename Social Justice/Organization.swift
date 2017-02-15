@@ -11,6 +11,8 @@ class Organization: NSObject, NSCoding{
     var title: String
     var acronym: String
     var tags: [Int]
+    static var totalOrgs = -1
+    var index: Int
     var shortDesc: String
     var iUrl: String
     var url: URL
@@ -22,6 +24,8 @@ class Organization: NSObject, NSCoding{
         self.acronym = a
         self.iUrl = u
         self.url = URL(string: o)!
+        Organization.totalOrgs += 1
+        self.index = Organization.totalOrgs
     }
     
     func doesAlign() -> Bool{

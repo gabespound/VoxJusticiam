@@ -53,14 +53,14 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.orgImage.isHidden = false
         self.orgDesc.isHidden = false
-        self.orgImage.imageFromServerURL(urlString: (globUs.organizations?[indexPath.row].iUrl)!)
-        self.orgDesc.text = globUs.organizations?[indexPath.row].shortDesc
+        self.orgImage.imageFromServerURL(urlString: (globOA[globUs.organizations[indexPath.row]].iUrl))
+        self.orgDesc.text = globOA[globUs.organizations[indexPath.row]].shortDesc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuorgcell", for: indexPath) as! menuOrgCell
         
-        cell.orgname.text = globUs.organizations?[indexPath.row].acronym
+        cell.orgname.text = globOA[globUs.organizations[indexPath.row]].acronym
         return cell
     }
     
@@ -69,7 +69,7 @@ class MainMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return globUs.organizations!.count
+        return globUs.organizations.count
     }
     
 }

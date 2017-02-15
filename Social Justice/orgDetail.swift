@@ -29,7 +29,7 @@ class orgDetailVC: UIViewController {
     
     @IBAction func addOrg(_ sender: Any) {
         if(!globUs.alreadyHasOrg(o: org!)){
-            globUs.organizations?.append(self.org!)
+            globUs.organizations.append(self.org!.index)
         }
         dismiss(animated: true, completion: nil)
     }
@@ -49,7 +49,7 @@ class orgDetailVC: UIViewController {
         self.orgDesc.text = self.org!.shortDesc
         var tempText = ""
         for tag in self.org!.tags {
-            tempText += (tag.title + "\n")
+            tempText += (globTA[tag].title + "\n")
         }
         self.tagsLabel.text = tempText
     }

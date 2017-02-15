@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if let us = NSKeyedUnarchiver.unarchiveObject(withFile: User.archiveURL.path) as? User {
             globUs = us
-            let sb = UIStoryboard(name: "OneStoryboard", bundle: nil)
+            let sb = UIStoryboard(name: "Main", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "main")
             self.window = UIWindow(frame: UIScreen.main.bounds)
             self.window?.rootViewController = vc
