@@ -9,11 +9,6 @@
 import Foundation
 import UIKit
 
-class TagCell: UITableViewCell{
-    
-    @IBOutlet weak var cellLabel: UILabel!
-}
-
 class TagTableVC: UITableViewController{
     
     //Table Content
@@ -26,11 +21,18 @@ class TagTableVC: UITableViewController{
     //Required Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        var placeHolder = NSMutableAttributedString()
+        let text = "Search"
+        placeHolder = NSMutableAttributedString(string: text, attributes: [NSFontAttributeName:UIFont(name: "Avenir",size: 15.0)!])
+        placeHolder.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range:NSRange(location:0, length:text.characters.count))
         self.tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        let bck = UIImageView(image: #imageLiteral(resourceName: "Background"))
+        bck.frame = self.tableView.frame
+        self.tableView.backgroundView = bck
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +78,9 @@ class TagTableVC: UITableViewController{
         }
         
         cell.cellLabel.text = text
+        cell.cellLabel.textColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
+        cell.cellLabel.font = UIFont(name: "Avenir", size: 15.0)
         return cell
     }
     

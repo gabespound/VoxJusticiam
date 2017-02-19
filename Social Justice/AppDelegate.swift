@@ -79,14 +79,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if let us = NSKeyedUnarchiver.unarchiveObject(withFile: User.archiveURL.path) as? User {
-            globUs = us
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "main")
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = vc
-            self.window?.makeKeyAndVisible()
-        }
+//        if let us = NSKeyedUnarchiver.unarchiveObject(withFile: User.archiveURL.path) as? User {
+//            globUs = us
+//            let sb = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = sb.instantiateViewController(withIdentifier: "main")
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//            self.window?.rootViewController = vc
+//            self.window?.makeKeyAndVisible()
+//        }
         return true
     }
 

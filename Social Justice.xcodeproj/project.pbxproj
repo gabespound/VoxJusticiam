@@ -23,6 +23,8 @@
 		00824BF21E221E320031C1DB /* Social_JusticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00824BF11E221E320031C1DB /* Social_JusticeUITests.swift */; };
 		00A2E0361E419FA6008ED3F3 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */; };
 		00A2E0381E41AAEE008ED3F3 /* yourUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2E0371E41AAEE008ED3F3 /* yourUser.swift */; };
+		786BE10D1E598BE200508DA6 /* tagTableVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786BE10C1E598BE200508DA6 /* tagTableVC2.swift */; };
+		78C2CD971E595C0A00F09EC1 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CD961E595C0A00F09EC1 /* customTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		00824BF31E221E320031C1DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		00A2E0371E41AAEE008ED3F3 /* yourUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yourUser.swift; sourceTree = "<group>"; };
+		786BE10C1E598BE200508DA6 /* tagTableVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableVC2.swift; sourceTree = "<group>"; };
+		78C2CD961E595C0A00F09EC1 /* customTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		002999591E3F0146008E387A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				78C2CD961E595C0A00F09EC1 /* customTextField.swift */,
 				0029995B1E3F017B008E387A /* Organization.swift */,
 				0029995D1E3F01A5008E387A /* Tag.swift */,
 				0029995F1E3F01FB008E387A /* User.swift */,
@@ -105,6 +110,7 @@
 		0029995A1E3F014E008E387A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				786BE10C1E598BE200508DA6 /* tagTableVC2.swift */,
 				00824BD31E221E320031C1DB /* newUser.swift */,
 				002754E71E3F349F00B4928D /* TagTableVC.swift */,
 				002A675E1E4151B600AA6265 /* Organization Finder.swift */,
@@ -303,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				786BE10D1E598BE200508DA6 /* tagTableVC2.swift in Sources */,
 				002754E81E3F349F00B4928D /* TagTableVC.swift in Sources */,
 				00A2E0381E41AAEE008ED3F3 /* yourUser.swift in Sources */,
 				0029995E1E3F01A5008E387A /* Tag.swift in Sources */,
@@ -311,6 +318,7 @@
 				002999601E3F01FB008E387A /* User.swift in Sources */,
 				002A67611E41721100AA6265 /* orgDetail.swift in Sources */,
 				00824BD21E221E320031C1DB /* AppDelegate.swift in Sources */,
+				78C2CD971E595C0A00F09EC1 /* customTextField.swift in Sources */,
 				0025EAF61E42DEBD009CD5F2 /* orgFinderfromuser.swift in Sources */,
 				002A675F1E4151B600AA6265 /* Organization Finder.swift in Sources */,
 				00A2E0361E419FA6008ED3F3 /* MainMenuVC.swift in Sources */,

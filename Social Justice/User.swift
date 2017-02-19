@@ -25,7 +25,8 @@ class User: NSObject, NSCoding{
         self.img = UIImage()
         if(t.count != 0){
             self.tags = t
-        } else if (o.count != 0) {
+        }
+        if (o.count != 0) {
             self.organizations = o
         }
     }
