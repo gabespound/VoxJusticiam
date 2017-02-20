@@ -24,6 +24,7 @@
 		00A2E0361E419FA6008ED3F3 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */; };
 		00A2E0381E41AAEE008ED3F3 /* yourUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2E0371E41AAEE008ED3F3 /* yourUser.swift */; };
 		786BE10D1E598BE200508DA6 /* tagTableVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786BE10C1E598BE200508DA6 /* tagTableVC2.swift */; };
+		786DCB851E5A225C00858CCE /* OrgFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786DCB841E5A225C00858CCE /* OrgFinder.swift */; };
 		78C2CD971E595C0A00F09EC1 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CD961E595C0A00F09EC1 /* customTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		00A2E0371E41AAEE008ED3F3 /* yourUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yourUser.swift; sourceTree = "<group>"; };
 		786BE10C1E598BE200508DA6 /* tagTableVC2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagTableVC2.swift; sourceTree = "<group>"; };
+		786DCB841E5A225C00858CCE /* OrgFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrgFinder.swift; sourceTree = "<group>"; };
 		78C2CD961E595C0A00F09EC1 /* customTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */,
 				00A2E0371E41AAEE008ED3F3 /* yourUser.swift */,
 				0025EAF51E42DEBD009CD5F2 /* orgFinderfromuser.swift */,
+				786DCB841E5A225C00858CCE /* OrgFinder.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				78C2CD971E595C0A00F09EC1 /* customTextField.swift in Sources */,
 				0025EAF61E42DEBD009CD5F2 /* orgFinderfromuser.swift in Sources */,
 				002A675F1E4151B600AA6265 /* Organization Finder.swift in Sources */,
+				786DCB851E5A225C00858CCE /* OrgFinder.swift in Sources */,
 				00A2E0361E419FA6008ED3F3 /* MainMenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

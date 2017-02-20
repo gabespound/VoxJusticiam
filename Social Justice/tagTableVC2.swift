@@ -18,15 +18,15 @@ class tagCell: UITableViewCell{
 
 class tagTableVC2: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var filteredTags = [Tag]()
-    
-    @IBOutlet weak var searchField: customTextField!
-    
     @IBOutlet weak var explain: UILabel!
     
     @IBOutlet weak var doneButton: UIButton!
     
     @IBOutlet weak var tagTable: UITableView!
+    
+    @IBAction func done(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,8 @@ class tagTableVC2: UIViewController, UITableViewDelegate, UITableViewDataSource{
         myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 241.0/255.0, green: 196.0/255.0, blue: 15.0/255.0, alpha: 1), range: NSRange(location:7,length:6))
         myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 241.0/255.0, green: 196.0/255.0, blue: 15.0/255.0, alpha: 1), range: NSRange(location:32,length:8))
         self.explain.attributedText = myMutableString
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
+        self.tagTable.backgroundColor = UIColor.clear
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Background"))
         
     }
     
@@ -48,12 +49,26 @@ class tagTableVC2: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return nil
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tagCell") as! tagCell
+        cell.cellLabel.text = globTA[indexPath.row].title
+        if(globUs.tags.contains(indexPath.row)){
+            cell.check.isHidden = false
+        }
+        cell.backgroundColor = UIColor.clear
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        globUs.tags.append(indexPath.row)
-        
+        if(globUs.tags.contains(indexPath.row)){
+            globUs.tags.remove(at: globUs.tags.index(of: indexPath.row)!)
+            let myCell = tableView.cellForRow(at: indexPath) as! tagCell
+            myCell.check.isHidden = true
+        } else {
+            globUs.tags.append(indexPath.row)
+            let myCell = tableView.cellForRow(at: indexPath) as! tagCell
+            myCell.check.isHidden = false
+        }
+        tableView.reloadData()
         
     }
     
@@ -62,7 +77,7 @@ class tagTableVC2: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return globTA.count
     }
     
 }

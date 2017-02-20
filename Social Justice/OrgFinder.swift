@@ -1,15 +1,24 @@
 //
-//  orgFinderfromuser.swift
+//  OrgFinder.swift
 //  Social Justice
 //
-//  Created by Gabriel Spound on 2/2/17.
+//  Created by Gabriel Spound on 19/02/2017.
 //  Copyright © 2017 Gabriel Spound. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class OrgFinderfromUser: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class OrgCell: UITableViewCell {
+    
+    @IBOutlet weak var check: UIImageView!
+    @IBOutlet weak var orgAcro: UILabel!
+    @IBOutlet weak var orgImg: UIImageView!
+    @IBOutlet weak var topTag: UILabel!
+    
+}
+
+class OrgFinder2: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var orgTable: UITableView!
     
@@ -17,9 +26,6 @@ class OrgFinderfromUser: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var explain: UILabel!
     var filteredOrgs = [Organization]()
     
-    @IBAction func back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.orgTable.delegate = self
@@ -47,7 +53,7 @@ class OrgFinderfromUser: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "orgfromusercell") as! OrgCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "orgcell") as! OrgCell
         cell.orgAcro.text = filteredOrgs[indexPath.row].acronym
         cell.topTag.text = globTA[filteredOrgs[indexPath.row].tags[0]].title
         cell.orgImg.imageFromServerURL(urlString: filteredOrgs[indexPath.row].iUrl)

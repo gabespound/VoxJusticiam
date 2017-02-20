@@ -9,13 +9,7 @@
 import Foundation
 import UIKit
 
-class OrgCell: UITableViewCell {
-    
-    @IBOutlet weak var orgAcro: UILabel!
-    @IBOutlet weak var orgImg: UIImageView!
-    @IBOutlet weak var topTag: UILabel!
-    
-}
+
 
 class OrgFinder: UITableViewController {
     

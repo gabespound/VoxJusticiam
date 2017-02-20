@@ -23,8 +23,8 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var firstName: UILabel!
-    @IBOutlet weak var lastName: UILabel!
     @IBOutlet weak var bio: UILabel!
+    @IBOutlet weak var back: UIImageView!
     
     @IBOutlet weak var tagTable: UITableView!
     @IBOutlet weak var orgTable: UITableView!
@@ -34,6 +34,33 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBAction func addOrg(_ sender: Any) {
     }
     
+    @IBAction func tapGal(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = true
+            
+            self.present(imagePicker, animated: true, completion: nil)
+            
+        } else {
+            NSLog("No Cam Fam")
+        }
+    }
+    
+    @IBAction func tapCam(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = true
+            
+            self.present(imagePicker, animated: true, completion: nil)
+            
+        } else {
+            NSLog("No Cam Fam")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,10 +68,22 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.tagTable.dataSource = self
         self.orgTable.delegate = self
         self.orgTable.dataSource = self
-        
-        self.firstName.text = globUs.firstName
-        self.lastName.text = globUs.lastName
+        self.orgTable.backgroundColor = UIColor.clear
+        self.tagTable.backgroundColor = UIColor.clear
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "Background"))
+        if let fN = globUs.firstName{
+            if let lN = globUs.lastName{
+                self.firstName.text = fN + " " + lN
+            }
+        }
         self.bio.text = globUs.bio
+        self.profPic.setRounded()
+        if let img = globUs.img{
+            if img.size != UIImage().size{
+                self.profPic.image = img
+            }
+        }
+        self.view.sendSubview(toBack: self.back)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,25 +108,23 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         if (tableView == self.orgTable) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "usorgcell", for: indexPath) as! UsOrgCell
             cell.orgLabel.text = globOA[globUs.organizations[indexPath.row]].acronym
+            cell.selectionStyle = .none
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ustagcell", for: indexPath) as! UsTagCell
             cell.tagLabel.text = globTA[globUs.tags[indexPath.row]].title
+            cell.selectionStyle = .none
             return cell
         }
     }
     
-    func showcamera() {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.allowsEditing = true
-            
-            self.present(imagePicker, animated: true, completion: nil)
-            
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(tableView == self.orgTable){
+            globUs.organizations.remove(at: indexPath.row)
+            self.orgTable.reloadData()
         } else {
-            NSLog("No Cam Fam")
+            globUs.tags.remove(at: indexPath.row)
+            self.tagTable.reloadData()
         }
     }
     
@@ -96,7 +133,16 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
+        globUs.img = chosenImage
         self.profPic.image = chosenImage
     }
     
+}
+
+extension UIImageView{
+    func setRounded(){
+        let radius = self.frame.width / 2.0
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
 }
