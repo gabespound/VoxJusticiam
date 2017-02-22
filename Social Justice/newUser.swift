@@ -8,7 +8,7 @@
 
 import UIKit
 
-class newUser: UIViewController, UITextViewDelegate {
+class newUser: UIViewController, UITextViewDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var viewTitleLabel: UILabel!
     @IBOutlet weak var nameTextField: customTextField!
@@ -43,16 +43,36 @@ class newUser: UIViewController, UITextViewDelegate {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameTextField.delegate = self
+        self.lastTextField.delegate = self
         self.bioTextView.delegate = self
         let img = UIImageView(frame: self.bioTextView.bounds)
+        img.contentMode = .scaleToFill
         img.image = #imageLiteral(resourceName: "text_field_bio")
         self.bioTextView.backgroundColor = UIColor.clear
         self.bioTextView.addSubview(img)
         self.bioTextView.sendSubview(toBack: img)
-//        self.bioTextView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "text_field_bio"))
         self.bioTextView.textContainerInset.left = 10
         
         var pHFN = NSMutableAttributedString()
@@ -70,6 +90,9 @@ class newUser: UIViewController, UITextViewDelegate {
         
         self.bioTextView.text = "Bio"
         self.bioTextView.textColor = UIColor.white
+        self.nameTextField.returnKeyType = UIReturnKeyType.done
+        self.lastTextField.returnKeyType = UIReturnKeyType.done
+        self.bioTextView.returnKeyType = UIReturnKeyType.done
 //        PHB = NSMutableAttributedString(string:bioString, attributes: [NSFontAttributeName:UIFont(name: "Avenir", size: 17.0)!])
 //        PHB.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range:NSRange(location:0, length:bioString.characters.count))
 //        self.bioTextField.attributedPlaceholder = PHB
