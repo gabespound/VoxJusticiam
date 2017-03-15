@@ -38,7 +38,7 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum
             imagePicker.allowsEditing = true
             
             self.present(imagePicker, animated: true, completion: nil)
@@ -79,9 +79,7 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.bio.text = globUs.bio
         self.profPic.setRounded()
         if let img = globUs.img{
-            if img.size != UIImage().size{
-                self.profPic.image = img
-            }
+            self.profPic.image = img
         }
         self.view.sendSubview(toBack: self.back)
     }
@@ -131,7 +129,7 @@ class yourUserVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         self.dismiss(animated: true, completion: nil)
         
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         globUs.img = chosenImage
         self.profPic.image = chosenImage

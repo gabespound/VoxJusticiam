@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0025EAF61E42DEBD009CD5F2 /* orgFinderfromuser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0025EAF51E42DEBD009CD5F2 /* orgFinderfromuser.swift */; };
-		002754E81E3F349F00B4928D /* TagTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002754E71E3F349F00B4928D /* TagTableVC.swift */; };
 		0029995C1E3F017B008E387A /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029995B1E3F017B008E387A /* Organization.swift */; };
 		0029995E1E3F01A5008E387A /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029995D1E3F01A5008E387A /* Tag.swift */; };
 		002999601E3F01FB008E387A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029995F1E3F01FB008E387A /* User.swift */; };
-		002A675F1E4151B600AA6265 /* Organization Finder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A675E1E4151B600AA6265 /* Organization Finder.swift */; };
-		002A67611E41721100AA6265 /* orgDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002A67601E41721100AA6265 /* orgDetail.swift */; };
 		00824BD21E221E320031C1DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00824BD11E221E320031C1DB /* AppDelegate.swift */; };
 		00824BD41E221E320031C1DB /* newUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00824BD31E221E320031C1DB /* newUser.swift */; };
 		00824BD71E221E320031C1DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00824BD51E221E320031C1DB /* Main.storyboard */; };
@@ -47,12 +44,9 @@
 
 /* Begin PBXFileReference section */
 		0025EAF51E42DEBD009CD5F2 /* orgFinderfromuser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orgFinderfromuser.swift; sourceTree = "<group>"; };
-		002754E71E3F349F00B4928D /* TagTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTableVC.swift; sourceTree = "<group>"; };
 		0029995B1E3F017B008E387A /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		0029995D1E3F01A5008E387A /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0029995F1E3F01FB008E387A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		002A675E1E4151B600AA6265 /* Organization Finder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization Finder.swift"; sourceTree = "<group>"; };
-		002A67601E41721100AA6265 /* orgDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orgDetail.swift; sourceTree = "<group>"; };
 		00824BCE1E221E320031C1DB /* Social Justice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Justice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00824BD11E221E320031C1DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00824BD31E221E320031C1DB /* newUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newUser.swift; sourceTree = "<group>"; };
@@ -114,9 +108,6 @@
 			children = (
 				786BE10C1E598BE200508DA6 /* tagTableVC2.swift */,
 				00824BD31E221E320031C1DB /* newUser.swift */,
-				002754E71E3F349F00B4928D /* TagTableVC.swift */,
-				002A675E1E4151B600AA6265 /* Organization Finder.swift */,
-				002A67601E41721100AA6265 /* orgDetail.swift */,
 				00A2E0351E419FA6008ED3F3 /* MainMenuVC.swift */,
 				00A2E0371E41AAEE008ED3F3 /* yourUser.swift */,
 				0025EAF51E42DEBD009CD5F2 /* orgFinderfromuser.swift */,
@@ -313,17 +304,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				786BE10D1E598BE200508DA6 /* tagTableVC2.swift in Sources */,
-				002754E81E3F349F00B4928D /* TagTableVC.swift in Sources */,
 				00A2E0381E41AAEE008ED3F3 /* yourUser.swift in Sources */,
 				0029995E1E3F01A5008E387A /* Tag.swift in Sources */,
 				00824BD41E221E320031C1DB /* newUser.swift in Sources */,
 				0029995C1E3F017B008E387A /* Organization.swift in Sources */,
 				002999601E3F01FB008E387A /* User.swift in Sources */,
-				002A67611E41721100AA6265 /* orgDetail.swift in Sources */,
 				00824BD21E221E320031C1DB /* AppDelegate.swift in Sources */,
 				78C2CD971E595C0A00F09EC1 /* customTextField.swift in Sources */,
 				0025EAF61E42DEBD009CD5F2 /* orgFinderfromuser.swift in Sources */,
-				002A675F1E4151B600AA6265 /* Organization Finder.swift in Sources */,
 				786DCB851E5A225C00858CCE /* OrgFinder.swift in Sources */,
 				00A2E0361E419FA6008ED3F3 /* MainMenuVC.swift in Sources */,
 			);

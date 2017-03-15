@@ -50,11 +50,11 @@ class tagTableVC2: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tagCell") as! tagCell
+        cell.selectionStyle = .none
         cell.cellLabel.text = globTA[indexPath.row].title
         if(globUs.tags.contains(indexPath.row)){
             cell.check.isHidden = false
         }
-        cell.backgroundColor = UIColor.clear
         return cell
     }
     

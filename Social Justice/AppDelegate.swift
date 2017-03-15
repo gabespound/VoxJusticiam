@@ -39,7 +39,7 @@ let globTS = TagsStruct.init()
 let globTA = [globTS.animals, globTS.civilrights, globTS.guncontrol, globTS.gunrights, globTS.LGBTQ, globTS.prochoice, globTS.prolife, globTS.jew, globTS.safe, globTS.refugee, globTS.environment, globTS.children, globTS.med, globTS.pov]
 
 struct OrgsStruct {
-    let aspca = Organization(t: "American Society for the Prevention of Cruelty to Animals", a: "ASPCA", tA: [0], sD: "Works to rescue animals from abuse", u: "https://pbs.twimg.com/profile_images/718076464856338432/zlcMj0Oo.jpg", o: "https://www.aspca.org/")
+    let aspca = Organization(t: "American Society for the Prevention of Cruelty to Animals", a: "ASPCA", tA: [0], sD: "Works to rescue animals from abuse", u: "http://www.aspca.org/sites/default/files/aspca-logo-square.png", o: "https://www.aspca.org/")
     let plannedP = Organization(t: "Planned Parenthood", a: "Planned Parenthood", tA: [5], sD: "Provides reproductive health services globally", u: "http://www.therightfew.com/wp-content/uploads/2016/09/Planned-Parenthood-Logo-Square.jpg", o: "https://www.plannedparenthood.org/")
     let nRA = Organization(t: "National Rifle Association", a: "NRA", tA: [3], sD: "Advocates for gun rights in the US", u: "http://www.2acheck.com/wp-content/uploads/2013/02/NRA-logo.jpg", o: "https://home.nra.org/")
     let jewGuns = Organization(t: "Jews for the Preservation of Firearms Ownership", a: "JPFO", tA: [3], sD: "Jewish Group dedicated to the preservation of gun rights in the US", u: "http://www.ammoland.com/wp-content/uploads/2011/07/Jews-For-The-Preservation-Of-Firearms-Ownership-Logo.jpg?63352d", o: "http://jpfo.org/")
@@ -93,19 +93,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        saveuser()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        saveuser()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        if let us = NSKeyedUnarchiver.unarchiveObject(withFile: User.archiveURL.path) as? User {
+            globUs = us
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "main")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -122,7 +133,7 @@ extension UIImageView {
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
             
             if error != nil {
-                print(error)
+                print(error!)
                 return
             }
             DispatchQueue.main.async(execute: { () -> Void in

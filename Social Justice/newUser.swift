@@ -8,8 +8,13 @@
 
 import UIKit
 
-class newUser: UIViewController, UITextViewDelegate, UITextFieldDelegate{
+class collectionTagCell: UICollectionViewCell{
+    @IBOutlet weak var tagTitle: UILabel!
+}
+
+class newUser: UIViewController, UITextViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
+    @IBOutlet weak var tagView: UICollectionView!
     @IBOutlet weak var viewTitleLabel: UILabel!
     @IBOutlet weak var nameTextField: customTextField!
     @IBOutlet weak var bioTextView: UITextView!
@@ -18,6 +23,10 @@ class newUser: UIViewController, UITextViewDelegate, UITextFieldDelegate{
         globUs.lastName = lastTextField.text
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tagView.reloadData()
+    }
     
     @IBAction func tagsButton(_ sender: Any) {
     }
@@ -66,13 +75,14 @@ class newUser: UIViewController, UITextViewDelegate, UITextFieldDelegate{
         super.viewDidLoad()
         self.nameTextField.delegate = self
         self.lastTextField.delegate = self
+        self.tagView.delegate = self
+        self.tagView.dataSource = self
+        tagView.reloadData()
+        self.tagView.allowsSelection = false
         self.bioTextView.delegate = self
-        let img = UIImageView(frame: self.bioTextView.bounds)
-        img.contentMode = .scaleToFill
-        img.image = #imageLiteral(resourceName: "text_field_bio")
-        self.bioTextView.backgroundColor = UIColor.clear
-        self.bioTextView.addSubview(img)
-        self.bioTextView.sendSubview(toBack: img)
+        self.bioTextView.layer.cornerRadius = 15
+        self.bioTextView.clipsToBounds = true
+        self.bioTextView.layer.backgroundColor = UIColor(red: 67.0/255.0, green: 148.0/255.0, blue: 202.0/255.0, alpha: 1.0).cgColor
         self.bioTextView.textContainerInset.left = 10
         
         var pHFN = NSMutableAttributedString()
@@ -109,10 +119,29 @@ class newUser: UIViewController, UITextViewDelegate, UITextFieldDelegate{
     func saveuser() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(globUs, toFile: User.archiveURL.path)
         if isSuccessfulSave {
-            print("Meals, saved")
+            print("user, saved")
         } else {
             print("fail save")
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "coltag", for: indexPath) as! collectionTagCell
+        cell.tagTitle.text = globTA[globUs.tags[indexPath.row]].title
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        globUs.tags.remove(at: indexPath.row)
+        collectionView.reloadData()
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return globUs.tags.count
     }
     
 }

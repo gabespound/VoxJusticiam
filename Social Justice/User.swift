@@ -22,7 +22,7 @@ class User: NSObject, NSCoding{
         self.firstName = n
         self.lastName = l
         self.bio = b
-        self.img = UIImage()
+        self.img = i
         if(t.count != 0){
             self.tags = t
         }
@@ -35,7 +35,6 @@ class User: NSObject, NSCoding{
         self.firstName = nil
         self.lastName = nil
         self.bio = nil
-        self.img = UIImage()
     }
     
     func alreadyHasTag(t: Int) -> Bool{
